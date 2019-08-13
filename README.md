@@ -7,7 +7,7 @@ ImageView加强版，支持拖动、缩放、绘制和贴纸。
 ![绘图演示](https://github.com/SailFlorve/ImageViewPlus/raw/master/img/draw.gif)
 ![添加贴纸演示](https://github.com/SailFlorve/ImageViewPlus/raw/master/img/bubble.gif)
 ### 说明
-此自定义图片View主要为学习交流使用，实现较为简单比较不成熟，没有经过较为复杂的测试。如有幸对你有帮助，可以自己下载代码进行修改（一共就两个Java文件，和一个资源文件）。也可以提出意见共同交流学习。
+此自定义图片View主要为学习交流使用，实现较为简单比较不成熟，没有经过较为复杂的测试。如有幸对你有帮助但需求无法满足，可以自己下载代码进行修改（一共就两个Java文件，和一个资源文件）。也可以提出意见共同交流学习。
 ### 使用方法
 ##### 1.在build.gradle中导入
 ##### 2.创建布局和对象
@@ -20,7 +20,7 @@ ImageView加强版，支持拖动、缩放、绘制和贴纸。
     android:orientation="vertical">
 
     <com.sailflorve.turboimageview.view.ImageViewPlus
-        android:id="@+id/cus_iv"
+        android:id="@+id/ivp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
         
