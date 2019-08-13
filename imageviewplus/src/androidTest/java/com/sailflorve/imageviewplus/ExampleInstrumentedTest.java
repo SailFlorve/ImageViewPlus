@@ -1,4 +1,4 @@
-package com.sailflorve.turboimageview;
+package com.sailflorve.imageviewplus;
 
 import android.content.Context;
 

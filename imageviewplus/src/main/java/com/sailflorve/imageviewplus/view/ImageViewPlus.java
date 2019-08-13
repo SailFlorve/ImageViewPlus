@@ -1,4 +1,4 @@
-package com.sailflorve.turboimageview.view;
+package com.sailflorve.imageviewplus.view;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -23,8 +23,8 @@ import android.widget.RelativeLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 
-import com.sailflorve.turboimageview.R;
-import com.sailflorve.turboimageview.util.ViewUtil;
+import com.sailflorve.imageviewplus.R;
+import com.sailflorve.imageviewplus.util.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
