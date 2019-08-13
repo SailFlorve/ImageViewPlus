@@ -21,11 +21,11 @@ ImageView加强版，支持拖动、缩放、绘制和贴纸。
 把下面的代码添加到Project级别的build.gradle的repositories中：
 ```
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 把下面的代码添加到模块级别的build.gradle中的dependencies中：
 ```
