@@ -38,22 +38,24 @@ mImageViewPlus.setImage(R.drawable.image);
 
 ### 接口说明
 ##### 初始化相关
-方法名称 | 说明
--|-|-
-ImageViewPlus(Context)<br>ImageViewPlus(Context, AttributeSet) | 构造方法
-void setImage(Bitmap)<br>void setImage(@DrawableRes int)<br> void setImage(Uri)| 使用Bitmap、Drawable资源、Uri设置图片
-void setBubbleBitmap(Bitmap) | 设置贴纸的Bitmap
+
+| 方法名称 | 说明 |
+|--|--|
+|ImageViewPlus(Context)<br>ImageViewPlus(Context, AttributeSet) | 构造方法|
+|void setImage(Bitmap)<br>void setImage(@DrawableRes int)<br> void setImage(Uri)| 使用Bitmap、Drawable资源、Uri设置图片|
+|void setBubbleBitmap(Bitmap) | 设置贴纸的Bitmap|
 
 ##### 拖动和缩放
-方法名称 | 说明
--|-|-
+
+| 方法名称 | 说明
+-|-
 void setCanScale(boolean)<br>boolean isCanScale() | 设置是否允许缩放
 void setCanDrag(boolean)<br>boolean isCanDrag() | 设置是否允许拖动
 void setScaleMax(float) | 设置最大缩放倍数
 
 ##### 绘制和贴纸
 方法名称 | 说明
--|-|-
+-|-
 void setDrawMode(boolean)<br>boolean getDrawMode() | DrawMode设置为true可以在图片上任意画线；为false时保存
 void setBubbleMode(boolean)<br>boolean getBubbleMode() | BubbleMode设置为true会显示贴纸，此时可以任意拖动；设置为false时保存
 void clearMode() | 等同于调用setDrawMode(false)和setBubbleMode(false)
@@ -64,7 +66,7 @@ void setLineColor(@ColorInt int) | 设置画线的颜色
 
 ##### 图片
 方法名称 | 说明
--|-|-
+-|-
 Bitmap getImgBitmap() | 获得图像Bitmap
 float getImageViewWidth()<br>float getImageViewHeight() | 获取图片在屏幕上的宽高(不是Bitmap的)
 
