@@ -29,7 +29,7 @@ allprojects {
 ```
 Module的build.gradle，在dependencies中添加：：
 ```
-implementation 'com.github.SailFlorve:ImageViewPlus:1.0.1'
+implementation 'com.github.SailFlorve:ImageViewPlus:1.0.5'
 ```
 ##### 2.创建布局和对象
 ```
