@@ -68,6 +68,6 @@ void setLineColor(@ColorInt int) | 设置画线的颜色
 方法名称 | 说明
 -|-
 Bitmap getImgBitmap() | 获得图像Bitmap
-float getImageViewWidth()<br>float getImageViewHeight() | 获取图片在屏幕上的宽高(不是Bitmap的)
+float getImageViewWidth()<br>float getImageViewHeight() | 获取图片屏幕显示的宽高(不是Bitmap的宽高)
 
 
