@@ -18,7 +18,7 @@ ImageView加强版，支持拖动、缩放、绘制和贴纸。
 此自定义图片View主要为个人使用用途，主要是学习交流，练习自定义View的相关实现，较为简单比较不成熟，没有经过较为复杂的测试。如有幸对你有帮助但需求无法满足，我会尽量完善，也可以自己下载代码进行修改（一共就两个Java文件，和一个资源文件）。
 ### 使用方法
 ##### 1.在build.gradle中导入
-把下面的代码添加到Project级别的build.gradle的repositories下：
+把下面的代码添加到Project级别的build.gradle的repositories中：
 ```
 allprojects {
 		repositories {
@@ -27,7 +27,7 @@ allprojects {
 		}
 	}
 ```
-把下面的代码添加到模块级别的build.gradle中的dependencies下：
+把下面的代码添加到模块级别的build.gradle中的dependencies中：
 ```
 implementation 'com.github.SailFlorve:ImageViewPlus:1.0.0'
 ```
@@ -57,7 +57,7 @@ mImageViewPlus.setImage(R.drawable.image);
 ```
 更多详细使用方法详见sample中的代码！
 
-### 接口说明
+### 公开方法说明
 ##### 初始化相关
 
 | 方法名称 | 说明 |
