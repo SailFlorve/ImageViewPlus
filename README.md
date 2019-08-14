@@ -78,8 +78,8 @@ void setScaleMax(float) | 设置最大缩放倍数
 void setDrawMode(boolean)<br>boolean getDrawMode() | DrawMode设置为true可以在图片上任意画线；为false时保存
 void setBubbleMode(boolean)<br>boolean getBubbleMode() | BubbleMode设置为true会显示贴纸，此时可以任意拖动；设置为false时保存
 void clearMode() | 等同于调用setDrawMode(false)和setBubbleMode(false)
-void addLine(PointF, PointF) | 以两点为端点绘制一条直线
-void addBubble(float, float) | 在坐标位置贴一个贴纸
+void addLine(PointF, PointF) | 以两点为端点绘制一条直线，坐标基于ImageView
+void addBubble(float, float) | 在坐标位置贴一个贴纸，坐标基于ImageView
 void setLineWidth(float) | 设置画线的宽度
 void setLineColor(@ColorInt int) | 设置画线的颜色
 
