@@ -586,7 +586,7 @@ public class ImageViewPlus extends RelativeLayout {
                 w, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         mImageView.setLayoutParams(layoutParams);
-        Log.d(TAG, "图片Bitmap：" + imgBitmap.getWidth() + " " + imgBitmap.getHeight());
+        Log.d(TAG, "图片 Bitmap：" + imgBitmap.getWidth() + " " + imgBitmap.getHeight());
         return imgBitmap;
     }
 
