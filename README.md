@@ -51,16 +51,18 @@ mImageViewPlus = findViewById(R.id.ivp);
 ```
 mImageViewPlus.setImage(R.drawable.image);
 ```
-更多详细使用方法详见sample中的代码！
+更多详细使用方法见sample中的代码！
 
 ### 公开方法说明
-##### 初始化相关
+##### 初始化和图片
 
 | 方法名称 | 说明 |
 |--|--|
 |ImageViewPlus(Context)<br>ImageViewPlus(Context, AttributeSet) | 构造方法|
 |void setImage(Bitmap)<br>void setImage(@DrawableRes int)<br> void setImage(Uri)| 使用Bitmap、Drawable资源、Uri设置图片|
 |void setBubbleBitmap(Bitmap) | 设置贴纸的Bitmap|
+|Bitmap getImgBitmap() | 获得图像Bitmap|
+|float getImageViewWidth()<br>float getImageViewHeight() | 获取图片屏幕显示的宽高(不是Bitmap的宽高)|
 
 ##### 拖动和缩放
 
@@ -80,11 +82,5 @@ void addLine(PointF, PointF) | 以两点为端点绘制一条直线
 void addBubble(float, float) | 在坐标位置贴一个贴纸
 void setLineWidth(float) | 设置画线的宽度
 void setLineColor(@ColorInt int) | 设置画线的颜色
-
-##### 图片
-方法名称 | 说明
--|-
-Bitmap getImgBitmap() | 获得图像Bitmap
-float getImageViewWidth()<br>float getImageViewHeight() | 获取图片屏幕显示的宽高(不是Bitmap的宽高)
 
 
