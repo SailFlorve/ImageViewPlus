@@ -31,13 +31,10 @@ implementation 'com.github.SailFlorve:ImageViewPlus:1.0.5'
 ##### 2.创建布局和对象
 ```
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.sailflorve.turboimageview.view.ImageViewPlus
+    <com.sailflorve.imageviewplus.view.ImageViewPlus
         android:id="@+id/ivp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
@@ -46,6 +43,8 @@ implementation 'com.github.SailFlorve:ImageViewPlus:1.0.5'
 ```
 ```
 private ImageViewPlus mImageViewPlus;
+```
+```
 mImageViewPlus = findViewById(R.id.ivp);
 ```
 #### 3.设置图片
