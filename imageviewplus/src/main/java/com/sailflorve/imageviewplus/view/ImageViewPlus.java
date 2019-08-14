@@ -46,8 +46,8 @@ public class ImageViewPlus extends RelativeLayout {
 
     private float mLastScale = 1;
 
-    private boolean canScale = true;
-    private boolean canDrag = true;
+    private boolean mScalable = true;
+    private boolean mDraggable = true;
 
     /* 绘制线条和气泡 */
     private Paint mPaint;
@@ -130,7 +130,7 @@ public class ImageViewPlus extends RelativeLayout {
                     break;
                 }
 
-                if (canScale) {
+                if (mScalable) {
                     //处理双指缩放
                     if (event.getPointerCount() == 2) {
                         isScaling = true;
@@ -145,7 +145,7 @@ public class ImageViewPlus extends RelativeLayout {
                 }
 
                 //处理单指滑动
-                if (canDrag) {
+                if (mDraggable) {
                     if (event.getPointerCount() == 1) {
                         if (!isScaling) {
                             slide(mImageView, event.getX(), event.getY());
@@ -608,20 +608,20 @@ public class ImageViewPlus extends RelativeLayout {
         return mImageView.getHeight();
     }
 
-    public boolean isCanScale() {
-        return canScale;
+    public boolean isScalable() {
+        return mScalable;
     }
 
-    public void setCanScale(boolean canScale) {
-        this.canScale = canScale;
+    public void setScalable(boolean scalable) {
+        this.mScalable = scalable;
     }
 
-    public boolean isCanDrag() {
-        return canDrag;
+    public boolean isDraggable() {
+        return mDraggable;
     }
 
-    public void setCanDrag(boolean canDrag) {
-        this.canDrag = canDrag;
+    public void setDraggable(boolean draggable) {
+        this.mDraggable = draggable;
     }
 
     public void setScaleMax(float max) {
