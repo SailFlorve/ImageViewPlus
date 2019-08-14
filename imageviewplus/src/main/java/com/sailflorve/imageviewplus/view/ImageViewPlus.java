@@ -573,21 +573,19 @@ public class ImageViewPlus extends RelativeLayout {
      * 已经超过imageView宽高的图片，维持原状
      */
     private Bitmap getFitImageViewBitmap(Bitmap imgBitmap) {
-        //Bitmap newBm;
+        int w;
         if (imgBitmap.getWidth() >= imgBitmap.getHeight()
                 && imgBitmap.getWidth() < getWidth()
                 || imgBitmap.getHeight() >= imgBitmap.getWidth()
                 && imgBitmap.getHeight() < getHeight()) {
-            //Log.d(TAG, "图片缩放：" + imgBitmap.getWidth() + " " + imgBitmap.getHeight());
-            //newBm = ViewUtil.getScaledBitmap(imgBitmap, getWidth(), getHeight());
-            LayoutParams layoutParams = new LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
-            mImageView.setLayoutParams(layoutParams);
-
+            w = ViewGroup.LayoutParams.MATCH_PARENT;
         } else {
-            //newBm = imgBitmap;
+            w = ViewGroup.LayoutParams.WRAP_CONTENT;
         }
+        LayoutParams layoutParams = new LayoutParams(
+                w, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+        mImageView.setLayoutParams(layoutParams);
         Log.d(TAG, "图片Bitmap：" + imgBitmap.getWidth() + " " + imgBitmap.getHeight());
         return imgBitmap;
     }
