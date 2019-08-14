@@ -264,7 +264,8 @@ public class ImageViewPlus extends RelativeLayout {
 
 
     /**
-     * 在图片上画一条线
+     * 在图片上画一条线<br>
+     * 坐标的范围参考 {@link #getImageViewWidth()}和{@link #getImageViewHeight()}
      *
      * @param p1 起始坐标，相对于ImageView
      * @param p2 终点坐标，相对于ImageView
@@ -286,7 +287,8 @@ public class ImageViewPlus extends RelativeLayout {
     }
 
     /**
-     * 把气泡添加到图片上，使用{@link #setBubbleBitmap(Bitmap)}设置气泡
+     * 把气泡添加到图片上，使用{@link #setBubbleBitmap(Bitmap)}设置气泡<br>
+     * 坐标的范围参考 {@link #getImageViewWidth()}和{@link #getImageViewHeight()}
      *
      * @param x 起始坐标，相对于ImageView
      * @param y 终点坐标，相对于ImageView
@@ -566,11 +568,9 @@ public class ImageViewPlus extends RelativeLayout {
 
 
     /**
-     * 根据三种情况缩放：
-     * 1.对于bitmap的width小于ImageView的width且width>height，
-     * 缩放Bitmap的width到ImageView的width，高同比缩放；
-     * 2.height同1；
-     * 3.已经超过imageView宽高的图片，维持原状
+     * 对于图片本身的width小于ImageView的width且width>height，<br>
+     * 设置ImageView宽度match_parent使其顶格显示；height同样处理；<br>
+     * 已经超过imageView宽高的图片，维持原状
      */
     private Bitmap getFitImageViewBitmap(Bitmap imgBitmap) {
         //Bitmap newBm;
