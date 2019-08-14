@@ -68,8 +68,8 @@ mImageViewPlus.setImage(R.drawable.image);
 
 | 方法名称 | 说明
 -|-
-void setCanScale(boolean)<br>boolean isCanScale() | 设置是否允许缩放
-void setCanDrag(boolean)<br>boolean isCanDrag() | 设置是否允许拖动
+void setScalable(boolean)<br>boolean isScalable() | 设置是否允许缩放
+void setDraggable(boolean)<br>boolean isDraggable() | 设置是否允许拖动
 void setScaleMax(float) | 设置最大缩放倍数
 
 ##### 绘制和贴纸
