@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ImageViewPlus.iml" filepath="$PROJECT_DIR$/ImageViewPlus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/imageviewplus/imageviewplus.iml" filepath="$PROJECT_DIR$/imageviewplus/imageviewplus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ImageViewPlus.iml" filepath="$PROJECT_DIR$/ImageViewPlus.iml" group="ImageViewPlus" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ImageViewPlus/app" />
+      <module fileurl="file://$PROJECT_DIR$/imageviewplus/imageviewplus.iml" filepath="$PROJECT_DIR$/imageviewplus/imageviewplus.iml" group="ImageViewPlus/imageviewplus" />
+      <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" group="ImageViewPlus/sample" />
     </modules>
   </component>
 </project>

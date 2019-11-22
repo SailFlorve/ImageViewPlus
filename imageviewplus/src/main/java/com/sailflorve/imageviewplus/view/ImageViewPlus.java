@@ -29,7 +29,6 @@ import com.sailflorve.imageviewplus.util.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ImageViewPlus extends RelativeLayout {
     private static final String TAG = "CustomImageView";
 
