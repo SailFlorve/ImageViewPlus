@@ -36,11 +36,11 @@ public class ImageViewPlus extends RelativeLayout {
     private PointF mLastMovePoint; //第一根手指上次移动的点，按下和移动时更新
     private PointF mPointerLastDownPoint; //第二根手指上次落下的点，按下时更新
     private float mPointerDownDistance;
-    private boolean isMoving = false;
+    private boolean isSliding = false;
     private boolean isScaling = false;
 
     private static final float SCALE_RATIO = 400; //计算缩放比例的参数
-    private static final float SCALE_MIN = 0.5f; //最大允许缩放
+    private static final float SCALE_MIN = 0.5f; //最小允许缩放
     private static float mScaleMax = 4f; //最大允许缩放
 
     private float mLastScale = 1;
@@ -105,13 +105,17 @@ public class ImageViewPlus extends RelativeLayout {
         ViewUtil.drawLine(canvas, mLines, mLineWidth, mLineColor);
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public boolean performClick() {
+        return super.performClick();
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getActionMasked()) {
 
             case MotionEvent.ACTION_DOWN:
-                isMoving = false;
+                isSliding = false;
                 mLastMovePoint = new PointF(event.getX(), event.getY());
                 break;
 
@@ -174,10 +178,14 @@ public class ImageViewPlus extends RelativeLayout {
                 break;
 
             case MotionEvent.ACTION_UP:
+                if (!isSliding && !isScaling) {
+                    performClick();
+                }
                 clearPointerState();
                 repairImageLocation();
                 break;
         }
+
         return true;
     }
 
@@ -310,7 +318,7 @@ public class ImageViewPlus extends RelativeLayout {
      */
     private void clearPointerState() {
         isDrawing = false;
-        isMoving = false;
+        isSliding = false;
         isScaling = false;
     }
 
@@ -327,8 +335,8 @@ public class ImageViewPlus extends RelativeLayout {
 
         if (ViewUtil.getDistance(
                 mLastMovePoint, new PointF(currX, currY)) > 10
-                || isMoving) {
-            isMoving = true;
+                || isSliding) {
+            isSliding = true;
             v.setX(v.getX() + dx);
             v.setY(v.getY() + dy);
             mLastMovePoint.set(currX, currY);
@@ -588,6 +596,7 @@ public class ImageViewPlus extends RelativeLayout {
         Log.d(TAG, "图片 Bitmap：" + imgBitmap.getWidth() + " " + imgBitmap.getHeight());
         return imgBitmap;
     }
+
 
     public boolean getDrawMode() {
         return isDrawMode;

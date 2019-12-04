@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -72,6 +73,8 @@ public class ImageActivity extends AppCompatActivity {
         mBtnDrawInput.setOnClickListener(v -> getPointFromInput(0));
 
         mBtnBubbleInput.setOnClickListener(v -> getPointFromInput(1));
+
+        mImageViewPlus.setOnClickListener(v -> finish());
 
     }
 
@@ -136,11 +139,11 @@ public class ImageActivity extends AppCompatActivity {
                 .setView(view)
                 .setPositiveButton("确定", (dialog, which) -> {
                     try {
-                        float x1 = Float.valueOf(layoutX1.getEditText().getText().toString());
-                        float y1 = Float.valueOf(layoutY1.getEditText().getText().toString());
+                        float x1 = Float.parseFloat(layoutX1.getEditText().getText().toString());
+                        float y1 = Float.parseFloat(layoutY1.getEditText().getText().toString());
                         if (type == 0) {
-                            float x2 = Float.valueOf(layoutX2.getEditText().getText().toString());
-                            float y2 = Float.valueOf(layoutY2.getEditText().getText().toString());
+                            float x2 = Float.parseFloat(layoutX2.getEditText().getText().toString());
+                            float y2 = Float.parseFloat(layoutY2.getEditText().getText().toString());
                             mImageViewPlus.addLine(new PointF(x1, y1), new PointF(x2, y2));
                         } else {
                             mImageViewPlus.addBubble(x1, y1);
