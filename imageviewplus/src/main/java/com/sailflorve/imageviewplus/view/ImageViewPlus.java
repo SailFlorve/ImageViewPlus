@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.net.Uri;
+import android.os.CountDownTimer;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -62,6 +63,9 @@ public class ImageViewPlus extends RelativeLayout {
     private int mLineColor = Color.RED;
     private float mLineWidth = 10;
 
+    private long mLastClickTime = 0;
+    private CountDownTimer mClickTimer;
+
     /* 图片Bitmap */
 
     private ImageView mImageView;
@@ -107,7 +111,37 @@ public class ImageViewPlus extends RelativeLayout {
 
     @Override
     public boolean performClick() {
-        return super.performClick();
+
+        if (mClickTimer == null) {
+            mClickTimer = new CountDownTimer(200, 200) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                }
+
+                @Override
+                public void onFinish() {
+                    ImageViewPlus.super.performClick();
+                }
+            };
+        }
+
+        long time = System.currentTimeMillis();
+        if (time - mLastClickTime < 200
+                && ViewUtil.checkPointInView(mImageView, mLastMovePoint.x, mLastMovePoint.y)) {
+            mClickTimer.cancel();
+            if (mImageView.getScaleX() == 1) {
+                ViewUtil.setPivot(mImageView, mLastMovePoint, mLastMovePoint);
+                mImageView.animate().scaleX(3.0f).scaleY(3.0f);
+            } else if (mImageView.getScaleX() > 1) {
+                setImgLocOriginal();
+            }
+            mLastClickTime = time;
+        } else {
+            mClickTimer.start();
+            mLastClickTime = time;
+        }
+        return true;
     }
 
     @Override
