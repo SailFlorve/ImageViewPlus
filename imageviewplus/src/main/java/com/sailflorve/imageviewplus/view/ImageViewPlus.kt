@@ -165,7 +165,8 @@ class ImageViewPlus : RelativeLayout {
                     }
                 }
                 //处理单指滑动
-                if (isDraggable) {
+                if (isDraggable || mImageView.scaleX > 1) {
+                    parent.requestDisallowInterceptTouchEvent(mImageView.scaleX > 1)
                     if (event.pointerCount == 1) {
                         if (!isScaling) {
                             slide(mImageView, event.x, event.y)
@@ -195,6 +196,30 @@ class ImageViewPlus : RelativeLayout {
             }
         }
         return true
+    }
+
+    fun replaceImageView(imageView: ImageView) {
+        removeAllViews()
+        mImageView = imageView
+        mImageView.adjustViewBounds = true
+
+        val params: LayoutParams = mImageView.layoutParams as LayoutParams
+
+        params.apply {
+            this.width = ViewGroup.LayoutParams.MATCH_PARENT
+            this.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            this.addRule(CENTER_IN_PARENT)
+        }
+
+        if (mImageView.parent != null) {
+            (mImageView.parent as ViewGroup).removeAllViews()
+        }
+
+        addView(mImageView, params)
+    }
+
+    fun getImageView(): ImageView {
+        return mImageView
     }
 
     /**
@@ -309,7 +334,7 @@ class ImageViewPlus : RelativeLayout {
 
     fun setBubbleBitmap(bubbleBitmap: Bitmap?) {
         mBubbleBitmap = bubbleBitmap
-        post { checkBubbleNotCrossImage() }
+        mImageView.post { checkBubbleNotCrossImage() }
     }
 
     /**
@@ -572,6 +597,26 @@ class ImageViewPlus : RelativeLayout {
 
     fun setScaleMax(max: Float) {
         mScaleMax = max
+    }
+
+    fun setDraggable(draggable: Boolean) {
+        this.isDraggable = draggable
+    }
+
+    fun getDraggable(): Boolean {
+        return isDraggable
+    }
+
+    fun setScalable(scalable: Boolean) {
+        this.isScalable = scalable
+    }
+
+    fun getScalable(scalable: Boolean): Boolean {
+        return isScalable
+    }
+
+    fun getImageBitmap(): Bitmap? {
+        return imgBitmap
     }
 
 }

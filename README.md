@@ -61,8 +61,9 @@ mImageViewPlus.setImage(R.drawable.image);
 |ImageViewPlus(Context)<br>ImageViewPlus(Context, AttributeSet) | 构造方法|
 |void setImage(Bitmap)<br>void setImage(@DrawableRes int)<br> void setImage(Uri)| 使用Bitmap、Drawable资源、Uri设置图片|
 |void setBubbleBitmap(Bitmap) | 设置贴纸的Bitmap|
-|Bitmap getImgBitmap() | 获得图像Bitmap|
+|Bitmap getImageBitmap() | 获得图像Bitmap|
 |float getImageViewWidth()<br>float getImageViewHeight() | 获取图片屏幕显示的宽高(不是Bitmap的宽高)|
+|ImageView getImageView() | 获取ImageView|
 
 ##### 拖动和缩放
 
@@ -83,4 +84,44 @@ void addBubble(float, float) | 在坐标位置贴一个贴纸，坐标基于图�
 void setLineWidth(float) | 设置画线的宽度
 void setLineColor(@ColorInt int) | 设置画线的颜色
 
+### 使用自定义ImageView
+例如，在某些情况下需要加载图片URL，或者进行共享元素动画，想把内部的ImageView替换为Fresco的SimpleDraweeView或其他的自定义ImageView。
+```
+SimpleDraweeView sdv = findViewById(R.id.sdv);
+mImageViewPlus.replaceImageView(sdv);
 
+sdv.setImageUri(...)
+```
+需要注意的是，这种情况下设置图片时请使用SimpleDraweeView实例，因为SimpleDraweeView不推荐使用ImageView的方法设置图片。这会导致内部Bitmap为空，所以使用SimpleDraweeView后绘制和贴图功能也将失效。如果是其他自定义ImageView，可以使用setImage()方法设置图片。
+
+### 结合ViewPager一次浏览多张图片
+直接使用ViewPager嵌套即可，但是要把isDraggable设置为false，否则产生滑动冲突。<br>
+另外提供ImageViewPlusViewPager类（它并非ViewPager子类）快速实现，
+添加多个ImageViewPlus对象即可。<br>
+```
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.sailflorve.imageviewplus.view.ImageViewPlusViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+val list: List<ImageViewPlus> = listOf(
+    ImageViewPlus(this).apply {
+        setImage(R.drawable.bg_example1)
+    },
+
+    ImageViewPlus(this).apply {
+        setImage(R.drawable.timg)
+    }
+)
+
+viewPager.setImageViews(list)
+
+```

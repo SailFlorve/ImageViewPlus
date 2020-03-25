@@ -1,9 +1,5 @@
 package com.sailflorve.imageviewplus.sample;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
@@ -13,10 +9,13 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.sailflorve.imageviewplus.util.ViewUtil;
@@ -45,9 +44,7 @@ public class ImageActivity extends AppCompatActivity {
 
     protected void initView() {
         mImageViewPlus = findViewById(R.id.cus_iv);
-
-        mImageViewPlus.setImage(
-                ViewUtil.getBmpFromDrawable(this, R.drawable.timg));
+        mImageViewPlus.setImage(R.drawable.bg_example1);
 
         mBtnDraw = findViewById(R.id.btn_draw);
         mBtnBubble = findViewById(R.id.btn_add_popup);
