@@ -85,8 +85,22 @@ void setLineWidth(float) | 设置画线的宽度
 void setLineColor(@ColorInt int) | 设置画线的颜色
 
 ### 使用自定义ImageView
-例如，在某些情况下需要加载图片URL，或者进行共享元素动画，想把内部的ImageView替换为Fresco的SimpleDraweeView或其他的自定义ImageView。
+例如，在某些情况下需要加载图片URL，或者进行共享元素动画，想把内部的ImageView替换为Fresco的SimpleDraweeView或其他的自定义ImageView。需要在ImageViewPlus布局内加入需要自定义的View，然后调用replaceImageView()。
 ```
+<com.sailflorve.imageviewplus.view.ImageViewPlus
+        android:id="@+id/image_view_plus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/simple_drawee_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:transitionName="image"
+            tools:targetApi="lollipop" />
+
+</com.sailflorve.imageviewplus.view.ImageViewPlus>
+    
 SimpleDraweeView sdv = findViewById(R.id.sdv);
 mImageViewPlus.replaceImageView(sdv);
 
