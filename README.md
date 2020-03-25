@@ -101,7 +101,7 @@ void setLineColor(@ColorInt int) | 设置画线的颜色
 
 </com.sailflorve.imageviewplus.view.ImageViewPlus>
     
-SimpleDraweeView sdv = findViewById(R.id.sdv);
+SimpleDraweeView sdv = findViewById(R.id.simple_drawee_view);
 mImageViewPlus.replaceImageView(sdv);
 
 sdv.setImageUri(...)
