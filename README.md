@@ -114,11 +114,11 @@ sdv.setImageUri(...)
 
 val list: List<ImageViewPlus> = listOf(
     ImageViewPlus(this).apply {
-        setImage(R.drawable.bg_example1)
+        setImage(R.drawable.example1)
     },
 
     ImageViewPlus(this).apply {
-        setImage(R.drawable.timg)
+        setImage(R.drawable.example2)
     }
 )
 
